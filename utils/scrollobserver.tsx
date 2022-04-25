@@ -16,6 +16,8 @@ const ScrollObserver: React.FC = ({ children }) => {
 
   useEffect(() => {
     document.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => document.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
   return (

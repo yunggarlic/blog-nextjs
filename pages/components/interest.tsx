@@ -1,20 +1,26 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
-interface Props {
+//
+type Skill = {
   name: string;
-}
+  link: string;
+};
 
-const Interest: React.FC<Props> = ({ name }) => {
+const Interest = ({ name, link }: Skill) => {
   return (
-    <div className="w-36 text-center">
-      <Image
-        src={`/assets/interests/icons/${name.toLowerCase()}.svg`}
-        alt={name}
-        width={1}
-        height={1}
-        layout="responsive"
-      />
+    <div className="">
+      <Link href={link}>
+        <a target="_blank">
+          <Image
+            src={`/assets/interests/icons/${name}.svg`}
+            alt={name}
+            width={125}
+            height={125}
+          />
+        </a>
+      </Link>
     </div>
   );
 };
